@@ -11,10 +11,12 @@ statsmodels
 # Bayesian modeling
 pymc3
 arviz
+bayesian-changepoint-detection
+ruptures
 
 # Notebook tools
-jupyterlab
-ipykernel
+jupyter
 
 # Optional dev tools
 flake8
+reportlab
