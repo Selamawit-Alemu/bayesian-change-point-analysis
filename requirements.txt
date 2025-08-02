@@ -1,0 +1,22 @@
+# Core data stack
+pandas
+numpy
+matplotlib
+seaborn
+scipy
+
+# Time series & stats
+statsmodels
+
+# Bayesian modeling
+pymc3
+arviz
+bayesian-changepoint-detection
+ruptures
+
+# Notebook tools
+jupyter
+
+# Optional dev tools
+flake8
+reportlab
