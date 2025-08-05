@@ -15,10 +15,10 @@ export async function fetchOilPrices(start, end) {
     return res.json();
   }
 }
-export async function fetchEventMetadata() {
-  const res = await fetch('/api/events');
-  if (!res.ok) throw new Error('Failed to fetch event metadata');
-  return res.json();
+export async function fetchEvents() {
+  const response = await fetch('http://localhost:5000/api/events');
+  if (!response.ok) throw new Error('Failed to fetch events');
+  return response.json();
 }
 
 
