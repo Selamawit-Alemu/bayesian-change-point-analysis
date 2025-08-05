@@ -20,3 +20,6 @@ jupyter
 # Optional dev tools
 flake8
 reportlab
+
+Flask
+flask-cors

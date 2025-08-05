@@ -10,6 +10,62 @@ __pycache__/
 data/
 *.csv
 
+# Node modules and build artifacts
+node_modules/
+build/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Coverage
+coverage/
+
+# MacOS system files
+.DS_Store
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*.so
+
+# Python environment
+venv/
+.env/
+*.env
+
+# Flask cache & config
+instance/
+*.pyc
+*.pyo
+
+# VSCode & other IDE/editor settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+
+# Reports, data cache or logs
+*.log
+reports/
+data/*.csv  # if you want to exclude raw data from being pushed
+
 
 # Distribution / packaging
 .Python
