@@ -13,31 +13,36 @@ To identify statistically significant change points in Brent oil price dynamics 
 
 ## 🧱 Project Structure
 
-    ├── .github/workflows/ # GitHub Actions CI setup
-    │ └── ci.yml # Continuous integration configuration
-    ├── dashboard/ # (Optional) Streamlit or Dash app (future extension)
-    ├── data/ # Raw and processed datasets
-    │ ├── BrentOilPrices.csv # Original historical data
-    │ ├── brent_clean.csv # Cleaned and processed data
-    │ └── event_data.csv # Metadata on real-world events
-    ├── notebooks/ # Jupyter notebooks for each step
-    │ ├── 01_EDA.ipynb # Exploratory data analysis
-    │ ├── 02_event_metadata... # Compiling contextual events
-    │ └── generate_report.ipynb # Generates interim report
-    ├── reports/
-    │ ├── figures/ # Saved plots (EDA visualizations)
-    │ ├── analysis_report.pdf # PDF version of the interim report
-    │ ├── brent_report.md # Markdown version of the report
-    │ └── change_points.csv # Placeholder for model output
-    ├── src/ # Python modules
-    │ ├── data_processing.py # Data cleaning and preparation logic
-    │ ├── eda_utils.py # EDA & visualization functions
-    │ └── eda_and_change_detection.py # Modular pipeline (WIP)
-    ├── venv/ # Python virtual environment
-    ├── .gitignore # Ignore venv, outputs, etc.
-    ├── requirements.txt # Required Python packages
-    └── README.md # You're here!
-
+    ├── .github/workflows/          # GitHub Actions CI setup
+    │   └── ci.yml                 # Continuous integration configuration
+    ├── backend/                   # Flask API backend serving data
+    │   └── app.py                 # Flask app with REST API endpoints
+    ├── data/                      # Raw and processed datasets
+    │   ├── BrentOilPrices.csv     # Original historical data
+    │   ├── brent_clean.csv        # Cleaned and processed data
+    │   └── event_data.csv         # Metadata on real-world events
+    ├── frontend/                  # React app frontend for interactive dashboard
+    │   ├── src/                  # React components and API client
+    │   ├── package.json          # Frontend dependencies and scripts
+    │   └── public/               # Static assets
+    ├── notebooks/                 # Jupyter notebooks for exploratory analysis
+    │   ├── 01_EDA.ipynb          # Exploratory data analysis
+    │   ├── 02_event_metadata_compilation.ipynb  # Compiling contextual events
+    │   └── generate_report.ipynb # Generates interim report
+    ├── reports/                   # Figures, outputs, and interim reports
+    │   ├── figures/               # Saved EDA and visualization plots
+    │   ├── analysis_report.pdf    # Interim PDF report
+    │   ├── brent_report.md        # Interim markdown report
+    │   └── change_points.csv      # Output of detected change points
+    ├── src/                       # Python modules for data processing & EDA
+    │   ├── data_processing.py     # Data cleaning & preparation functions
+    │   ├── eda_utils.py           # EDA and plotting utilities
+    │   └── eda_and_change_detection.py  # Modular pipeline (WIP)
+    ├── venv/                      # Python virtual environment (ignored)
+    ├── .gitignore                 # Ignore virtual env, node_modules, outputs, etc.
+    ├── requirements.txt           # Python package dependencies
+    ├── package.json               # Frontend dependencies
+    └── README.md                  # Project documentation (this file)
 
 ---
 
@@ -51,32 +56,70 @@ To identify statistically significant change points in Brent oil price dynamics 
 
 ---
 
-## ⚙️ How to Run
+##📊 Key Features
 
-### 1. Clone the Repo
+    📈 Log return transformation and volatility calculation of oil prices
 
+    🔍 Stationarity testing using ADF and KPSS tests
 
-    git clone https://github.com/Selamawit-Alemu/bayesian-change-point-analysis.git
-    cd  bayesian-change-point-analysis
+    🧠 Event metadata compilation linking price shifts to real-world occurrences
 
-2. Create Virtual Environment
+    🛠️ Flask REST API backend serving processed data and change points
 
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    📊 React frontend dashboard with interactive charts, filters, and event highlights
 
-3. Install Requirements
+    📁 All outputs and figures stored under reports/ for easy access
 
-    pip install -r requirements.txt
+⚙️ How to Run
+Backend Setup
 
-4. Run the Notebooks
+    Create and activate a Python virtual environment:
 
-Open Jupyter or VSCode and step through:
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
-    notebooks/01_EDA.ipynb
+    Install dependencies:
 
-    notebooks/02_event_metadata_compilation.ipynb
+pip install -r requirements.txt
 
-    notebooks/generate_report.ipynb
+    Run the Flask backend API:
+
+python backend/app.py
+
+API will be available at http://localhost:5000.
+Frontend Setup
+
+    Navigate to frontend folder:
+
+cd frontend
+
+    Install npm packages:
+
+npm install
+
+    Start React development server:
+
+npm start
+
+The dashboard will open at http://localhost:3000.
+Running the Notebooks
+
+Open Jupyter or VSCode and run notebooks sequentially:
+
+    notebooks/01_EDA.ipynb — Exploratory Data Analysis
+
+    notebooks/02_event_metadata_compilation.ipynb — Event Metadata
+
+    notebooks/generate_report.ipynb — Generates interim report
+
+📚 Interim Report
+
+See the detailed progress report here:
+
+    Markdown: reports/brent_report.md
+
+    PDF: reports/analysis_report.pdf
+
 
 All figures and results will be saved to the reports/ folder.
 📚 Interim Report
@@ -100,4 +143,4 @@ Build a dashboard or interactive report
 
 🧠 Why Bayesian Change Points?
 
-Bayesian models provide posterior distributions over switch points, allowing us to reason about uncertainty and causality. This project connects statistical change detection with real-world signals for actionable business insights.
+Bayesian models provide posterior distributions over switch points, allowing us to reason about uncertainty and causality. This 
