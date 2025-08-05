@@ -44,6 +44,15 @@ def get_oil_metrics():
     df['Date'] = df['Date'].astype(str)
     return jsonify(df.to_dict(orient='records'))
 
+@app.route('/api/events', methods=['GET'])
+def get_events():
+    """Serve historical geopolitical/economic events."""
+    try:
+        events = pd.read_csv('data/event_data.csv', parse_dates=['Date'])
+        events['Date'] = events['Date'].astype(str)
+        return jsonify(events.to_dict(orient='records'))
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
